@@ -30,6 +30,15 @@ return [
 
     'disks' => [
 
+        #Declaration of "private" filesystem that leads to storage/user_files. This filesystem disk will be used to store
+        #users private files.
+
+        'private' => [
+            'driver' => 'local',
+            'root' => storage_path('user_files'),
+            'throw' => true,
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
