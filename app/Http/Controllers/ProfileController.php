@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +50,11 @@ class ProfileController extends Controller
         $user = $request->user();
 
         Auth::logout();
+        #code to delete the user's directory and subsequently all of the user files. 
+
+        $username = $user -> username;
+        $path = "private/{$username}/";      
+        Storage::deleteDirectory($path);
 
         $user->delete();
 

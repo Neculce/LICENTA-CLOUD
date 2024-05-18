@@ -35,8 +35,11 @@ return [
 
         'private' => [
             'driver' => 'local',
-            'root' => storage_path('user_files'),
+            'root' => storage_path('app/private'),
+            'url' => env('APP_URL').'/storage',
             'throw' => true,
+            'visibility' => 'private'
+
         ],
 
         'local' => [
