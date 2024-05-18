@@ -51,7 +51,7 @@ class UploadController extends Controller
 
         $uploadedFile = new UploadedFile();
         $uploadedFile->user_id=$id;
-        $uploadedFile->filepath='storage/app/'.$path.'/'.$originalFileName;
+        $uploadedFile->filepath='/app/'.$path.'/'.$originalFileName;
         $uploadedFile->filename=$originalFileName;
         $uploadedFile->filetype=$originalFileExtension;
         $uploadedFile->filesize=$size;
@@ -93,11 +93,11 @@ class UploadController extends Controller
     $path = $uploadedFile->filepath;
 
     #main error : not found - file at the given $path : storage/app/private/test1/filename.file does not exist - - IS NULL
-    return response()->download($path);
+    return response()->download(storage_path($path));
 
     #return response()->streamDownload(function ()  use ($uploadedFile) {
     #    echo Storage::disk('private')->get($uploadedFile->filepath);
-    #s  }, $uploadedFile->filename);
+    #}, $uploadedFile->filename);
 
 }
 }
