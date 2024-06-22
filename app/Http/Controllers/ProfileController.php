@@ -21,7 +21,6 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
-
     /**
      * Update the user's profile information.
      */
@@ -37,10 +36,7 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
-
-    /**
-     * Delete the user's account.
-     */
+    //Delete user account
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
@@ -48,9 +44,8 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
-
         Auth::logout();
-        #code to delete the user's directory and subsequently all of the user files. 
+        //code to delete the user's directory and subsequently all of the user files. 
 
         $username = $user -> username;
         $path = "private/{$username}/";      

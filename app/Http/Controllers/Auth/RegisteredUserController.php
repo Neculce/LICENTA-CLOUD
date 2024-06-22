@@ -15,17 +15,13 @@ use Illuminate\Support\Facades\Storage;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
+    //Show Reg.view
     public function create(): View
     {
         return view('auth.register');
     }
-
     /**
      * Handle an incoming registration request.
-     *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse

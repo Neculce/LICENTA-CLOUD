@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('uploads.create')" :active="request()->routeIs('uploads.create')">
+                        {{ __('Upload a File') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -71,6 +74,13 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('uploads.create')" :active="request()->routeIs('uploads.create')">
+                    {{ __('Upload a File') }}
+                </x-responsive-nav-link>
+            </div>
+            
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">

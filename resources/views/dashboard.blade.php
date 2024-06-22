@@ -23,6 +23,7 @@
         <th>Filename</th>
         <th>Uploaded at</th>
         <th>Download</th>
+        <th>Delete</th>
     </tr>
     @forelse($uploadedFiles as $uploadedFile)
         <tr>
@@ -36,6 +37,8 @@
                 <a href="{{ route('uploads.download', $uploadedFile) }}" download>Download {{ $uploadedFile->filename }}</a>        
                 
             </td>
+            <td>
+                <a href="{{route('uploads.delete', $uploadedFile)}}" delete>Delete file </a>
         </tr>
     @empty
         <tr>
