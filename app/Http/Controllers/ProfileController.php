@@ -48,11 +48,11 @@ class ProfileController extends Controller
         //code to delete the user's directory and subsequently all of the user files. 
 
         $username = $user -> username;
-        $path = "private/{$username}/";      
+        $path = "storage/app/private/{$username}/";      
         Storage::deleteDirectory($path);
 
         $user->delete();
-
+        
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

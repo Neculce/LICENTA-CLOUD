@@ -38,7 +38,7 @@
                 
             </td>
             <td>
-                <a href="{{route('uploads.delete', $uploadedFile)}}" delete>Delete file </a>
+                <a href="{{route('uploads.delete', $uploadedFile)}}" >Delete file </a>
         </tr>
     @empty
         <tr>
@@ -46,6 +46,12 @@
         </tr>
     @endforelse
 </table>
+
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 
     </section>
 

@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () { #ONLY ALLOW AUTHENTICATED USERS T
     Route::get('uploads/create', [UploadController::class, 'create'])->name('uploads.create'); # upload file form
     Route::post('uploads/store', [UploadController::class, 'store'])->name('uploads.store'); # validate file, store, secure
     Route::get('uploads/download/{uploadedFile}', [UploadController::class, 'download'])->name('uploads.download');
-    Route::delete('uploads/delete/{uploaddedFile}', [UploadController::class, 'delete'])->name('uploads.delete');
+    Route::get('uploads/delete/{uploadedFile}', [UploadController::class, 'delete'])->name('uploads.delete');
     Route::get('/dashboard', [UploadController::class, 'index'])->name('dashboard'); #render the file upload section 
     #to implement a new route for the deletion of file. Also for the downloading of the files. to be continued.
 });
