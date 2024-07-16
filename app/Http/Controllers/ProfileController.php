@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\UploadedFile;
+use App\Models\User;
+
 
 class ProfileController extends Controller
 {
@@ -44,15 +47,15 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
-        Auth::logout();
-        //code to delete the user's directory and subsequently all of the user files. 
+        $id=Auth::user()->id;
 
-        $username = $user -> username;
-        $path = "storage/app/private/{$username}/";      
-        Storage::deleteDirectory($path);
+        Auth::logout();
+        $user = User::findOrFail($id);
+
+        //code to delete the user's directory and subsequently all of the user files. 
+        UploadedFile::where('user_id', $id)->delete();
 
         $user->delete();
-        
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

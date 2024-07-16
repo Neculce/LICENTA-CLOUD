@@ -64,8 +64,18 @@
         <div class="flex justify-between px-5 py-5 ">
 
             <!-- Div pas 1 : inregistrare -->
+            <a href="{{ url('/register') }}" >
+                <div class=" rounded-[30px] border-4 border-black bg-slate-400 py-5 px-5 m-10 text-slate-950 items-center justify-center text-center ">
 
-            <div class=" rounded-[30px] border-4 border-black bg-slate-400 py-5 px-5 m-10 text-slate-950 items-center justify-center text-center ">
+                    <img class="h-32 w-32 m-5 block mx-auto" src="{{ asset('images/edit.png') }}">
+                    <div class="bg-slate-600 rounded-lg">
+                    <h1 class="text-center"> First step : Registering </h1>
+                    </div>
+                    <p class="text-center"> You will need to register first and verify your email in order to acces our cloud storage service </p>
+                </div> 
+
+            </a>
+         <!--   <div class=" rounded-[30px] border-4 border-black bg-slate-400 py-5 px-5 m-10 text-slate-950 items-center justify-center text-center ">
 
                 <img class="h-32 w-32 m-5 block mx-auto" src="{{ asset('images/edit.png') }}">
 
@@ -77,30 +87,29 @@
 
             <!-- Div pas 2 : logare -->
 
-            <div class=" rounded-[30px] border-4 border-black bg-slate-400 py-5 px-5 m-10 text-slate-950 items-center justify-center text-center ">
+            <a href="{{ route('login') }}">
+                <div class=" rounded-[30px] border-4 border-black bg-slate-400 py-5 px-5 m-10 text-slate-950 items-center justify-center text-center ">
 
-                <img class="h-32 w-32 m-5 block mx-auto" src="{{ asset('images/log-in.png') }}">
-
-                <div class="bg-slate-600 rounded-lg">
-                <h1 class="text-center"> Second step : Log in </h1>
+                    <img class="h-32 w-32 m-5 block mx-auto" src="{{ asset('images/log-in.png') }}">
+                    <div class="bg-slate-600 rounded-lg">
+                    <h1 class="text-center"> Second step : Log in </h1>
+                    </div>
+                    <p class="text-center"> After the registration process you will be redirected to the login page. For security purposes, whenever you close the browser,
+                        you will have to log in again. </p>
                 </div>
-
-                <p class="text-center"> After the registration process you will be redirected to the login page. For security purposes, whenever you close the browser,
-                    you will have to log in again. </p>
-            </div>
-
+            </a>
             <!-- Div pas 3 : stocare -->
+             <a href="{{ route('dashboard') }}">
+                <div class=" rounded-[30px] border-4 border-black bg-slate-400 py-5 px-5 m-10 text-slate-950 items-center justify-center text-center ">
 
-            <div class=" rounded-[30px] border-4 border-black bg-slate-400 py-5 px-5 m-10 text-slate-950 items-center justify-center text-center ">
-
-                <img class="h-32 w-32 m-5    block mx-auto" src="{{ asset('images/hosting.png') }}">
-                
-                <div class="bg-slate-600 rounded-lg">
-                <h1 class="text-center"> Final step : Store </h1>
+                    <img class="h-32 w-32 m-5    block mx-auto" src="{{ asset('images/hosting.png') }}">       
+                    <div class="bg-slate-600 rounded-lg">
+                    <h1 class="text-center"> Final step : Store </h1>
+                    </div>
+                    <p class="text-center"> Now that you are registered and logged in, you may use your storage to store any kind of files you wish to store </p>
                 </div>
+            </a>    
 
-                <p class="text-center"> Now that you are registered and logged in, you may use your storage to store any kind of files you wish </p>
-            </div>
 
         </div>
 

@@ -18,7 +18,7 @@ class UploadController extends Controller
     {
         #checks if the request does have a file indeed. 
         $request->validate([
-            'userfile' => 'required|file',
+            'userfile' => 'required|file|max:5000',
         ]);
 
         //Declaration of file as userfile and size via file method
@@ -61,7 +61,7 @@ class UploadController extends Controller
         $uploadedFile->filesize = $size;
         $uploadedFile->save();
 
-        return redirect()->route('dashboard')->with('status', "File `{$uploadedFile->original_name}` uploaded successfully.");
+        return redirect()->route('dashboard')->with('status', "File `{$originalFileName}` uploaded successfully.");
     }
 
     public function create()
@@ -112,7 +112,7 @@ class UploadController extends Controller
                 if(Storage::exists($filepath))
                 {Storage::delete($filepath);}
                 else{
-                    return redirect()->route('dashboard')->with('status', "File deleted from DB but not from storage");
+                    return redirect()->route('dashboard')->with('status', "File was deleted");
  
                 }
 

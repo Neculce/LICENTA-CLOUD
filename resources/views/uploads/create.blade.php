@@ -15,22 +15,30 @@
         </div>
     </x-slot>
 
-<section class="bg-slate-800">
-<h1 class="title">Upload file</h1>
-@if ($errors->any())
-<div class="notification is-danger is-light">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+<section class="text-gray-300 px-5 py-5 justify-items-center">
+    <div>
+<h1 class="title justify-center flex text-xl">Upload file</h1>
+    </div>
 
-<form action="{{ route('uploads.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <input type="file" name="userfile">
-    <button type="submit">Upload</button>
-</form>
+<div class="justify-center flex py-5">
+    <form action="{{ route('uploads.store') }}" method="POST" enctype="multipart/form-data" class="px-5" >
+        @csrf
+        <input type="file" name="userfile" >
+        <button type="submit" class="text-xl">Press this button to upload</button>
+
+    </form>
+</div>
+</div>
 </section>
+<div class="flex justify-center text-grey-200">
+@if ($errors->any())
+                    <div class="notification is-danger is-light">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+</div>
 </x-app-layout>

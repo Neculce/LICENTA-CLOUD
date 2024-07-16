@@ -16,28 +16,36 @@
 
         <!--Whole section dedicated to showing and downloading the files-->
 
-    <section>
-        <h1>Uploaded files</h1>
-<table>
-    <tr>
+    <section class="text-gray-300 px-5 py-5 text" >
+
+        <div class="justify-center flex text-2xl">  
+             <h1>Uploaded files</h1>
+        </div>
+
+<table class="text-gray-300 justify-center flex py-5 text">
+    <tr class=" space-x-4">
         <th>Filename</th>
         <th>Uploaded at</th>
+        <th>Filesize</th>
         <th>Download</th>
         <th>Delete</th>
     </tr>
     @forelse($uploadedFiles as $uploadedFile)
-        <tr>
-            <td>
+        <tr class="space-x-4">
+            <td class=" px-9">
                 {{ $uploadedFile->filename }}
             </td>
-            <td>
+            <td class=" px-9">
                 {{ $uploadedFile->created_at }}
             </td>
-            <td>
+            <td class="px-9">
+                {{ $uploadedFile->filesize }}.Bytes
+            </td>
+            <td class=" px-9">
                 <a href="{{ route('uploads.download', $uploadedFile) }}" download>Download {{ $uploadedFile->filename }}</a>        
                 
             </td>
-            <td>
+            <td class=" px-9">
                 <a href="{{route('uploads.delete', $uploadedFile)}}" >Delete file </a>
         </tr>
     @empty
@@ -47,12 +55,14 @@
     @endforelse
 </table>
 
-@if (session('status'))
+
+
+    </section>
+<div class="justify-center flex py-5 text-red-900">
+    @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
 @endif
-
-    </section>
-
+</div>
 </x-app-layout>
